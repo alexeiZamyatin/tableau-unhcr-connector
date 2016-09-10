@@ -24,6 +24,27 @@
 'use strict';
 angular.module('tableauUnhcrConnectorApp')
 
+  .service('Stats', function ($http) {
+    var vm = this;
+    vm.query = function (url) {
+      return $http({
+        method: 'GET',
+        url: 'http://data.unhcr.org/api/' + url +'?',
+        isArray: true
+      })
+    };
+
+    vm.queryParams = function(url, param){
+      return $http({
+        method: 'GET',
+        url: 'http://data.unhcr.org/api/' + url + '?',
+        isArray: true,
+        params: param
+      })
+    }
+
+  })
+
   .factory('MediterraneanDeaths', function ($resource) {
     return $resource('http://data.unhcr.org/api/stats/mediterranean/deaths.json', {}, {
       query: {method: 'GET', isArray: true}
@@ -61,11 +82,6 @@ angular.module('tableauUnhcrConnectorApp')
     })
   })
 
-  .factory('MediterraneanCountries', function ($resource) {
-    return $resource('http://data.unhcr.org/api/stats/mediterranean/countries.json', {}, {
-      query: {method: 'GET', isArray: true}
-    })
-  })
 
   .service('TimeSeriesAllYears', function ($http) {
     var vm = this;
@@ -82,12 +98,6 @@ angular.module('tableauUnhcrConnectorApp')
 
   .factory('TimeSeriesAll', function ($resource) {
     return $resource('http://data.unhcr.org/api/stats/time_series_years.json', {}, {
-      query: {method: 'GET', isArray: true}
-    })
-  })
-
-  .factory('TimeSeriesPopulationTypes', function ($resource) {
-    return $resource('http://data.unhcr.org/api/stats/time_series_population_types.json', {}, {
       query: {method: 'GET', isArray: true}
     })
   })
@@ -161,6 +171,29 @@ angular.module('tableauUnhcrConnectorApp')
       query: {method: 'GET', isArray: true}
     })
   })
+
+  /**
+   * For user interface selections
+   */
+
+  .factory('MediterraneanCountries', function ($resource) {
+    return $resource('http://data.unhcr.org/api/stats/mediterranean/countries.json', {}, {
+      query: {method: 'GET', isArray: true}
+    })
+  })
+
+  .factory('TimeSeriesPopulationTypes', function ($resource) {
+    return $resource('http://data.unhcr.org/api/stats/time_series_population_types.json', {}, {
+      query: {method: 'GET', isArray: true}
+    })
+  })
+
+/**
+ * JSON Files
+ */
+  .factory('ApiCalls', function ($resource) {
+    return $resource('json/availableApiCalls.json');
+  });
 
 
 

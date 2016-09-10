@@ -36,7 +36,6 @@ angular.module('tableauUnhcrConnectorApp')
         }
       });
 
-      $log.debug(tableauSchema);
       return tableauSchema;
     }
 
