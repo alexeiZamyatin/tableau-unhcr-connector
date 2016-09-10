@@ -14,25 +14,33 @@
     "name": "Persons Of Concern",
     "id": "persons_of_concern",
     "url": "stats/persons_of_concern.json",
-    "params": {"year": 2013}
+    "params": {"year": 2013},
+    "paramName": "Year",
+    "paramValue": 2013
   },
   {
     "name": "TimeSeries",
     "id": "time_series",
     "url": "stats/time_series.json",
-    "params": {"year": 2013}
+    "params": {"year": 2013},
+    "paramName": "Year",
+    "paramValue": 2013
   },
   {
     "name": "Demographics",
     "id": "demographics",
     "url": "stats/demographics.json",
-    "params": {"year": 2013}
+    "params": {"year": 2013},
+    "paramName": "Year",
+    "paramValue": 2013
   },
   {
     "name": "AsylumSeekers",
     "id": "asylum_seekers",
     "url": "stats/asylum_seekers.json",
-    "params": {"year": 2013}
+    "params": {"year": 2013},
+    "paramName": "Year",
+    "paramValue": 2013
   },
   {
     "name": "Time Series Population Types",

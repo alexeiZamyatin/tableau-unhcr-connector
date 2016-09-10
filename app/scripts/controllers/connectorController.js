@@ -4,68 +4,30 @@
 angular.module('tableauUnhcrConnectorApp')
   .controller('ConnectorController', function ($q, $scope, $log, SchemaService, Stats, ApiCalls) {
 
+    var myConnector = tableau.makeConnector();
 
     var vm = this;
     var scope = $scope;
     vm.result = undefined;
+    vm.tableSchemes = [];
 
+    vm.error = undefined;
 
-    vm.apiCalls = ApiCalls.query(function () {
-      vm.selected = [].concat(angular.copy(vm.apiCalls));
-
-      vm.tableSchemes = [];
-
-      vm.promises = [];
-
-      performQuery(vm.selected, 0);
-
-    });
+    vm.apiCalls = ApiCalls.query();
 
     vm.selectedData = {};
 
+    vm.workingSet = [];
+
 
     // Create the connector object
-    var myConnector = tableau.makeConnector();
 
 
     // Download data and determine the schema
     myConnector.getSchema = function (schemaCallback) {
 
-      var tableSchemes = [];
+      performQuery(vm.apiCalls, 0, schemaCallback);
 
-      var promises = [];
-      angular.forEach(vm.selected, function (apiCall) {
-
-        var params = {};
-        if (apiCall.params) {
-          params = apiCall.params;
-        }
-
-        vm.result = Stats.queryParams(apiCall.url, params);
-        vm.result.success(function (data) {
-
-          vm.selectedData[apiCall.id] = data;
-
-          var tableInfo = {
-            id: apiCall.id,
-            alias: apiCall.name
-          };
-          tableInfo.columns = SchemaService.createSchema(data[0]);
-          tableSchemes.push(tableInfo);
-
-        }).error(function (error) {
-          // TODO: handle error
-          vm.error = error;
-        });
-
-        promises.push(vm.result);
-      });
-
-      $q.all(promises).then(
-        function () {
-          schemaCallback(tableSchemes)
-        }
-      );
     };
 
 
@@ -82,13 +44,22 @@ angular.module('tableauUnhcrConnectorApp')
     vm.submit = function () {
       tableau.connectionName = "UNHCR API"; // This will be the data source name in Tableau
       tableau.submit(); // This sends the connector object to Tableau
+
+      //performQuery(vm.workingSet, 0, null);
+    };
+
+    vm.submitAll = function () {
+      angular.forEach(vm.apiCalls, function (apiCall) {
+        apiCall.selected = true;
+      });
+      vm.submit();
     };
 
 
-    function performQuery(apiCalls, index){
+    function performQuery(apiCalls, index, schemaCallback) {
 
-      if(index == apiCalls.length) {
-        //schemaCallback(vm.tableSchemes)
+      if (index == apiCalls.length) {
+        schemaCallback(vm.tableSchemes);
         return;
       }
 
@@ -96,7 +67,8 @@ angular.module('tableauUnhcrConnectorApp')
 
       var params = {};
       if (apiCall.params) {
-        params = apiCall.params;
+        params = {};
+        params[apiCall.paramName.toLowerCase()] = apiCall.paramValue;
       }
 
       var result = Stats.queryParams(apiCall.url, params);
@@ -108,18 +80,15 @@ angular.module('tableauUnhcrConnectorApp')
           id: apiCall.id,
           alias: apiCall.name
         };
-        $log.debug(data[0]);
         tableInfo.columns = SchemaService.createSchema(data[0]);
         vm.tableSchemes.push(tableInfo);
 
-        performQuery(apiCalls, index + 1)
+        performQuery(apiCalls, index + 1, schemaCallback)
       }).error(function (error) {
         // TODO: handle error
         vm.error = error;
-        performQuery(apiCalls, index + 1)
+        performQuery(apiCalls, index + 1, schemaCallback)
       });
-
-
     }
 
   });
