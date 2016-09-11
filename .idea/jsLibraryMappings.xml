@@ -2,5 +2,6 @@
 <project version="4">
   <component name="JavaScriptLibraryMappings">
     <file url="file://$PROJECT_DIR$" libraries="{tableau-unhcr-connector node_modules}" />
+    <file url="PROJECT" libraries="{tableauwdc-2.0.latest}" />
   </component>
 </project>

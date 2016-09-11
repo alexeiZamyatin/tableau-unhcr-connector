@@ -191,9 +191,16 @@ angular.module('tableauUnhcrConnectorApp')
 /**
  * JSON Files
  */
-  .factory('ApiCalls', function ($resource) {
-    return $resource('json/availableApiCalls.json');
+
+  .service('ApiCalls', function ($http) {
+    var vm = this;
+    vm.query = function () {
+      return $http.jsonp('json/availableApiCalls.json?callback=JSON_CALLBACK')
+    };
   });
+
+
+
 
 
 

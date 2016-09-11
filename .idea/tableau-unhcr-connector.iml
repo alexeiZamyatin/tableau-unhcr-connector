@@ -6,5 +6,6 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="tableau-unhcr-connector node_modules" level="project" />
+    <orderEntry type="library" name="tableauwdc-2.0.latest" level="application" />
   </component>
 </module>
