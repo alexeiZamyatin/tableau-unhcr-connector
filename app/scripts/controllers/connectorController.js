@@ -2,7 +2,7 @@
 
 
 angular.module('tableauUnhcrConnectorApp')
-  .controller('ConnectorController', function ($q, $scope, $log, SchemaService, Stats, ApiCalls) {
+  .controller('ConnectorController', function ($q, $scope, $log, SchemaService, Stats, ApiService) {
 
     var myConnector = tableau.makeConnector();
 
@@ -13,7 +13,7 @@ angular.module('tableauUnhcrConnectorApp')
 
     vm.error = undefined;
 
-    vm.apiCalls = ApiCalls.query();
+    vm.apiCalls = ApiService.getApis();
 
     vm.selectedData = {};
 
