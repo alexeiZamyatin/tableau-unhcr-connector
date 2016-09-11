@@ -1,0 +1,17 @@
+[{
+  "name": "Country Of Asylum",
+  "id": "country_of_asylum",
+  "url": "stats/country_of_asylum.json"
+},
+  {
+    "name": "Time Series All Years",
+    "id": "time_series_all_years",
+    "url": "stats/time_series_all_years.json",
+    "params": {"population_type_code": "AS"}
+  },
+  {
+    "name": "Time Series Years",
+    "id": "time_series_years",
+    "url": "stats/time_series_years.json"
+  }
+  ]
