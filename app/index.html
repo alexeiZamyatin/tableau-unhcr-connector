@@ -8,12 +8,13 @@
   <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
   <!-- build:css(.) styles/vendor.css -->
   <!-- bower:css -->
-  <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
+  <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css"/>
   <!-- endbower -->
   <!-- endbuild -->
   <!-- build:css(.tmp) styles/main.css -->
   <link rel="stylesheet" href="styles/main.css">
   <!-- endbuild -->
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
 </head>
 <body ng-app="tableauUnhcrConnectorApp">
 <!--[if lte IE 8]>
@@ -21,41 +22,36 @@
   your browser</a> to improve your experience.</p>
 <![endif]-->
 
-<!-- Add your site or application content here -->
-<div class="header">
-  <div class="navbar navbar-default" role="navigation">
-    <div class="container">
-      <div class="navbar-header">
 
-        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#js-navbar-collapse">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
+<div id="page-wrapper" data-ng-cloak="loading">
+  <div class="row page-header">
+    <h1 class="project-name">Tableau UNHCR API Connector</h1>
 
-        <a class="navbar-brand" href="#/">Tableau UNHCR Connector</a>
-      </div>
+    <div class="project-tagline">
+      <a href="#/" class="styled-btn">Home</a>
 
-      <div class="collapse navbar-collapse" id="js-navbar-collapse">
+      <a href="https://github.com/alexeiZamyatin/tableau-unhcr-connector" class="styled-btn ">View on GitHub</a>
+      <a href="https://github.com/alexeiZamyatin/tableau-unhcr-connector/zipball/master" class="styled-btn ">Download
+        .zip</a>
+      <a href="https://github.com/alexeiZamyatin/tableau-unhcr-connector/tarball/master" class="styled-btn ">Download
+        .tar.gz</a>
+      <a href="#about" class="styled-btn">About</a>
 
-        <ul class="nav navbar-nav">
-          <li class="active"><a href="#/">Home</a></li>
-          <li><a ng-href="#/about">About</a></li>
-          <li><a ng-href="#/">Contact</a></li>
-        </ul>
-      </div>
+
     </div>
+
+    <!-- /.col-lg-12 -->
   </div>
-</div>
+  <div class="col-xs-12">
+    <div ng-view></div>
+  </div>
+  <div>
+    <footer class="site-footer text-center">
+            <span class="site-footer-owner"><a href="https://github.com/alexeiZamyatin/tableau-unhcr-connector">Tableau-unhcr-connector</a> is maintained by <a
+              href="https://github.com/alexeiZamyatin">Alexei Zamyatin</a> and <a href = "https://github.com/PhilippSchindler">Philipp Schindler.</span>
 
-<div class="container">
-  <div ng-view=""></div>
-</div>
-
-<div class="footer">
-  <div class="container">
-    <p>Insert footer here</p>
+            <span class="site-footer-credits">Licence information goes here.</span>
+    </footer>
   </div>
 </div>
 
@@ -92,6 +88,7 @@
 <script src="scripts/libs/tableauwdc-2.0.latest.min.js"></script>
 <script src="scripts/app.js"></script>
 <script src="scripts/controllers/connectorController.js"></script>
+<script src="scripts/controllers/aboutController.js"></script>
 <script src="scripts/config/config.js"></script>
 <script src="scripts/rest/rest.js"></script>
 <!-- services -->

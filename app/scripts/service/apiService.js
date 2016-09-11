@@ -85,7 +85,7 @@ angular.module('tableauUnhcrConnectorApp')
           "url": "stats/mediterranean/demographics.json"
         },
         {
-          "name": "Mediterranean deaths",
+          "name": "Mediterranean Deaths",
           "id": "mediterranean_deaths",
           "url": "stats/mediterranean/deaths.json"
         }
