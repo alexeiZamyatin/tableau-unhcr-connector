@@ -33,6 +33,29 @@
         <button type="submit" class="btn btn-success small-margin-bot" data-ng-click="vm.submit()">Download Selected</button>
         <button type="submit" class="btn btn-success small-margin-bot" data-ng-click="vm.submitAll()">Download All</button>
       </div>
+
+      <div class="col-xs-12" data-ng-show="vm.export">
+
+        <div class="form-group">
+          <label for="filename">Filename </label>
+          <input type="text" id="filename" class="form-control" ng-model="filename">
+        </div>
+
+        <div class="form-group">
+          <label for="separator">Field separator</label>
+          <input type="text" id="separator" class="form-control" ng-model="separator" ng-init="separator=','">
+        </div>
+
+        <div class="form-group">
+          <label for="decimal-separator">Decimal separator</label>
+          <input type="text" id="decimal-separator" class="form-control" ng-model="decimalSeparator" ng-init="decimalSeparator='.'">
+        </div>
+
+        <button class="btn btn-default"
+                ng-csv="getArray" filename="{{ filename }}.csv" field-separator="{{separator}}" decimal-separator="{{decimalSeparator}}"
+        >Export to CSV</button>
+
+      </div>
     </div>
     <!-- /.col-lg-4 -->
   </div>
