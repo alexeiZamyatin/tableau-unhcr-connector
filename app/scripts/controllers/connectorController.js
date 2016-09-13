@@ -38,7 +38,7 @@ angular.module('tableauUnhcrConnectorApp')
 
 
     vm.submit = function () {
-
+      vm.error = undefined;
       var dataSelected = false;
       for (var i = 0; i < vm.apiCalls.length; i++) {
         if (vm.apiCalls[i].active == true) {
@@ -51,7 +51,15 @@ angular.module('tableauUnhcrConnectorApp')
 
 
         tableau.connectionName = "UNHCR API"; // This will be the data source name in Tableau
-        tableau.submit(); // This sends the connector object to Tableau
+        try{
+          tableau.submit(); // This sends the connector object to Tableau
+        }catch (error){
+          //called not in tableau desktop, download json data instead
+          //performQuery(vm.apiCalls, 0, null);
+          //vm.export = true;
+          vm.warning = "Huh, you are trying to use this web data connector from a normal browser. \n" +
+            "Unfortunately, this functionality is not yet provided. Please open this url using Tableau Desktop"
+        }
 
       } else {
         vm.error = "Please select at least one dataset";
@@ -59,6 +67,7 @@ angular.module('tableauUnhcrConnectorApp')
     };
 
     vm.submitAll = function () {
+      vm.error = undefined;
       angular.forEach(vm.apiCalls, function (apiCall) {
         apiCall.active = true;
       });
@@ -67,8 +76,10 @@ angular.module('tableauUnhcrConnectorApp')
         tableau.submit(); // This sends the connector object to Tableau
       }catch (error){
         //called not in tableau desktop, download json data instead
-        performQuery(vm.apiCalls, 0, null);
-        vm.export = true;
+        //performQuery(vm.apiCalls, 0, null);
+        //vm.export = true;
+        vm.warning = "Huh, you are trying to use this web data connector from a normal browser. \n" +
+          "Unfortunately, this functionality is not yet provided. Please open this url using Tableau Desktop"
       }
     };
 
