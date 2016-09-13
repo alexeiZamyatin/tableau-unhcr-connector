@@ -22,7 +22,7 @@ The Tableau UNCHR Connector is based on AngularJS and can be used to import data
   * bower install
   * grunt serve
   
-Note: you will need to install npm (also comes with node.js) and then use it to install bower and grunt-cli (npm install bower grunt-cli)
+Note: you will need to install npm (also comes with node.js) beforehand and then use it to install bower and grunt-cli (npm install bower grunt-cli). See https://www.npmjs.com/package/npm for npm installation instructions. 
 
 Installation via npm will be provided soon. 
 
