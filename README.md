@@ -31,6 +31,7 @@ Installation via npm will be provided soon.
 
 ## License
 Apache License, Version 2.0. See the LICENSE file for more information.
+Copyright 2016 Alexei Zamyatin, Philipp Schindler
 
 
 
