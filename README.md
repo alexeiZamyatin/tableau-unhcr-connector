@@ -2,6 +2,8 @@
 
 The Tableau UNCHR Connector is based on AngularJS and can be used to import data from the UNHCR API into Tableau (see http://www.tableau.com/).
 
+Deployed on https://alexeizamyatin.github.io/tableau-unhcr-connector/
+
 ## Usage
 
 ### Using the provided website
@@ -10,7 +12,7 @@ The Tableau UNCHR Connector is based on AngularJS and can be used to import data
 
 
 * Step 2:
-  Enter   https://alexeizamyatin.github.io/tableau-unhcr-connector/ into the search field of the opened window and press the Enter-Key. 
+  Enter https://alexeizamyatin.github.io/tableau-unhcr-connector/ into the search field of the opened window and press the Enter-Key. 
 
 * Step 3:
   Select the data you wish to retrieve from the UNHCR API and press "Download". For more information, follow the instructions provided on the page.
