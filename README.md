@@ -3,6 +3,8 @@
 The Tableau UNCHR Connector is based on AngularJS and can be used to import data from the UNHCR API into Tableau (see http://www.tableau.com/).
 
 ## Usage
+
+### Using the provided website
 * Step 1:
   In you Tableau Desktop distribution, add a new datasource and select "Web Data Connector" from the provided list and wait for a new window to open. 
 
@@ -12,6 +14,17 @@ The Tableau UNCHR Connector is based on AngularJS and can be used to import data
 
 * Step 3:
   Select the data you wish to retrieve from the UNHCR API and press "Download". For more information, follow the instructions provided on the page.
+
+### Cloning/Downloading and starting on local machine
+  Alternatively, you can clone/download this project and start the application on a server on you local machine. 
+  Execute the following commands in the root directory of the project: 
+  * npm install
+  * bower install
+  * grunt serve
+  
+Note: you will need to install npm (also comes with node.js) and then use it to install bower and grunt-cli (npm install bower grunt-cli)
+
+Installation via npm will be provided soon. 
 
 
 ## License
