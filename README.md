@@ -8,14 +8,14 @@ Deployed on https://alexeizamyatin.github.io/tableau-unhcr-connector/
 
 ### Using the provided website
 * Step 1:
-  In you Tableau Desktop distribution, add a new datasource and select "Web Data Connector" from the provided list and wait for a new window to open. 
+  In you Tableau Desktop distribution, add a new datasource, select "Web Data Connector" from the list of options and wait for a new window to open. 
 
 
 * Step 2:
   Enter https://alexeizamyatin.github.io/tableau-unhcr-connector/ into the search field of the opened window and press the Enter-Key. 
 
 * Step 3:
-  Select the data you wish to retrieve from the UNHCR API and press "Download". For more information, follow the instructions provided on the page.
+  Select the data you wish to retrieve from the UNHCR API and press "Download". 
 
 ### Cloning/Downloading and starting on local machine
   Alternatively, you can clone/download this project and start the application on a server on you local machine. 
