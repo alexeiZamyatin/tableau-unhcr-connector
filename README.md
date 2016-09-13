@@ -2,6 +2,13 @@
 
 AngularJS based webconnector to import data from the UNHCR API into Tableau (see http://www.tableau.com/).
 
+
+
+
+
+
+
+
 ---------------------------------------------------------------------------
 Copyright 2016 and onward Alexei Zamyatin, Philipp Schindler
 
@@ -15,4 +22,4 @@ Copyright 2016 and onward Alexei Zamyatin, Philipp Schindler
    distributed under the License is distributed on an "AS IS" BASIS,
    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
    See the License for the specific language governing permissions and
-limitations under the License.
+   limitations under the License.
